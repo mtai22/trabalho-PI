@@ -3,7 +3,7 @@
 {% block center %}
     <h2> Formulário de Cadernos</h2>
        
-    <form method="post" enctype="multpart/form-data">
+    <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
         <div class="mb-3">
             <label for="nome" class="form-label">Quantidade de folhas</label>
@@ -33,6 +33,11 @@
         <div class="mb-3">
             <label for="nome" class="form-label">Tipo</label>
             {{ form.tipo }}
+        </div>
+
+        <div class="mb-3">
+            <label for="nome" class="form-label">Imagem</label>
+            {{ form.imagem }}
         </div>
 
         <button type="submit" class="btn btn-primary">Enviar</button>

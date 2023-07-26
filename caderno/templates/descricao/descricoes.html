@@ -21,18 +21,15 @@
       {% for descricao in descricoes %}  
       <tr>
         <td>{{ descricao.quant_folhas }}</td>
-        <td>{{ descricao.quat_materias}}</td>
+        <td>{{ descricao.quant_materias}}</td>
         <td>{{ descricao.marca }}</td>
         <td>{{ descricao.tamanho}}</td>
         <td>{{ descricao.design}}</td>
         <td>{{ descricao.tipo}}</td>
+        <td><img class="img-fluid" src="{{ descricao.imagem.url}}"></td>
         <td>
-
           <a href="{% url 'descricao_editar' id=descricao.id %}" class="btn btn-primary btn-sm">Editar</a>
           <a href="{% url 'descricao_remover' id=descricao.id %}" class="btn btn-danger btn-sm">Remover</a>
-
-
-
         </td>
       </tr>
       {% endfor %}

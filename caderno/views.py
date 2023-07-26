@@ -8,7 +8,6 @@ def descricao_editar(request,id):
    
     if request.method == 'POST':
         form = DescricaoForm(request.POST,instance=descricao)
-
         if form.is_valid():
             form.save()
             return redirect('descricao_listar')
@@ -27,12 +26,12 @@ def descricao_remover(request, id):
 def descricao_criar(request):
     if request.method == 'POST':
         form = DescricaoForm(request.POST, request.FILES)
+        
         if form.is_valid():
             form.save()
-            form = DescricaoForm()
-    else:
-        form = DescricaoForm()
-
+            return redirect('descricao_listar')
+        
+    form = DescricaoForm()
     return render(request, "descricao/form.html", {'form': form})
 
 
@@ -41,6 +40,7 @@ def descricao_listar(request):
     context ={
         'descricoes':descricoes
     }
+    print(descricoes)
     return render(request, "descricao/descricoes.html",context)
 
 def index(request):
