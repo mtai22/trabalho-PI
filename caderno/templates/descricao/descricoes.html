@@ -1,0 +1,42 @@
+{% extends 'descricao/base.html' %}
+
+{% block center %}
+  <h2> Lista de Cadernos</h2>
+
+  <a href="{% url 'descricao_criar' %}" class="btn btn-success mb-3">Novo Cadastro</a>
+
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Quantidade de folhas</th>
+        <th>Quantidade de matérias</th>
+        <th>Marca</th>
+        <th>Tamanho</th>
+        <th>Design</th>
+        <th>Tipo</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for descricao in descricoes %}  
+      <tr>
+        <td>{{ descricao.quant_folhas }}</td>
+        <td>{{ descricao.quat_materias}}</td>
+        <td>{{ descricao.marca }}</td>
+        <td>{{ descricao.tamanho}}</td>
+        <td>{{ descricao.design}}</td>
+        <td>{{ descricao.tipo}}</td>
+        <td>
+
+          <a href="{% url 'descricao_editar' id=descricao.id %}" class="btn btn-primary btn-sm">Editar</a>
+          <a href="{% url 'descricao_remover' id=descricao.id %}" class="btn btn-danger btn-sm">Remover</a>
+
+
+
+        </td>
+      </tr>
+      {% endfor %}
+    
+    </tbody>
+  </table>
+{% endblock %}

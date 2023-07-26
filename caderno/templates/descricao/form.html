@@ -1,0 +1,41 @@
+{% extends 'descricao/base.html' %}
+
+{% block center %}
+    <h2> Formulário de Cadernos</h2>
+       
+    <form method="post" enctype="multpart/form-data">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="nome" class="form-label">Quantidade de folhas</label>
+            {{ form.quant_folhas }}
+        </div>
+        
+        <div class="mb-3">
+            <label for="nome" class="form-label">Quantidade de matérias</label>
+            {{ form.quant_materias }}
+        </div>
+
+        <div class="mb-3">
+            <label for="nome" class="form-label">Marca</label>
+            {{ form.marca }}
+        </div>
+        
+        <div class="mb-3">
+            <label for="nome" class="form-label">Tamanho</label>
+            {{ form.tamanho }}
+        </div>
+
+        <div class="mb-3">
+            <label for="nome" class="form-label">Design</label>
+            {{ form.design }}
+        </div>
+
+        <div class="mb-3">
+            <label for="nome" class="form-label">Tipo</label>
+            {{ form.tipo }}
+        </div>
+
+        <button type="submit" class="btn btn-primary">Enviar</button>
+    </form>    
+{% endblock %}
+   
